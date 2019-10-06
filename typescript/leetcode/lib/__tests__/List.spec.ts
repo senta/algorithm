@@ -1,20 +1,4 @@
-import { List, createList, toArray } from "../List"
-
-describe("List", () => {
-  it("has the value as val", () => {
-    const value = 10
-
-    const list = new List(value)
-    expect(list.val).toEqual(value)
-  })
-
-  it("links to next node", () => {
-    const list = new List(10)
-    list.next = new List(20)
-
-    expect(list.next.val).toEqual(20)
-  })
-})
+import { createList, toArray } from "../List"
 
 describe("List <-> Array", () => {
   it("creates linked list from an array", () => {

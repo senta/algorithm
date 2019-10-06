@@ -1,20 +1,4 @@
-import { Tree, createTree, toArray } from "../Tree"
-
-describe("Tree", () => {
-  it("has the value as val", () => {
-    const tree = new Tree(10)
-    expect(tree.val).toEqual(10)
-  })
-
-  it("links to child nodes", () => {
-    const tree = new Tree(10)
-    tree.left = new Tree(20)
-    tree.right = new Tree(30)
-
-    expect(tree.left.val).toEqual(20)
-    expect(tree.right.val).toEqual(30)
-  })
-})
+import { createTree, toArray } from "../Tree"
 
 describe("Tree <-> Array", () => {
   it("creates a tree from an array", () => {

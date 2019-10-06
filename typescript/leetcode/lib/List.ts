@@ -1,10 +1,6 @@
-export class List<T> {
+export interface List<T> {
   val: T
-  next: List<T> | null = null
-
-  constructor(val: T) {
-    this.val = val
-  }
+  next: List<T> | null
 }
 
 export function createList<T>(values: T[]): List<T> | null {
@@ -15,7 +11,7 @@ export function createList<T>(values: T[]): List<T> | null {
   let node: List<T> | null = null
 
   for (let i = values.length - 1; i >= 0; i--) {
-    const prev = new List<T>(values[i])
+    const prev: List<T> = { val: values[i], next: null }
     prev.next = node
     node = prev
   }

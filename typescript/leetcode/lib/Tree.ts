@@ -1,11 +1,7 @@
-export class Tree<T> {
+export interface Tree<T> {
   val: T
-  left: Tree<T> | null = null
-  right: Tree<T> | null = null
-
-  constructor(val: T) {
-    this.val = val
-  }
+  left: Tree<T> | null
+  right: Tree<T> | null
 }
 
 export function createTree<T>(
@@ -14,7 +10,7 @@ export function createTree<T>(
   index: number = 0
 ): Tree<T> | null {
   if (index < values.length) {
-    root = new Tree(values[index])
+    root = { val: values[index], left: null, right: null }
     root.left = createTree(values, root.left, 2 * index + 1)
     root.right = createTree(values, root.right, 2 * index + 2)
   }

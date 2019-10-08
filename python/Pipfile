@@ -5,10 +5,13 @@ verify_ssl = true
 
 [dev-packages]
 black = "*"
+mypy = "*"
+flake8-bugbear = "*"
+flake8-mypy = "*"
+flake8 = "*"
 
 [packages]
-flake8 = "*"
-black = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.7"

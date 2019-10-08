@@ -5,3 +5,5 @@ ignore =
     # E731: do not assign a lambda expression, use a def
     E731
 show-source = True
+max-complexity = 10
+max-line-length = 88

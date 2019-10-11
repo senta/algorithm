@@ -1,14 +1,14 @@
-export interface Tree<T> {
+export interface TreeNode<T> {
   val: T
-  left: Tree<T> | null
-  right: Tree<T> | null
+  left: TreeNode<T> | null
+  right: TreeNode<T> | null
 }
 
 export function createTree<T>(
   values: T[],
-  root: Tree<T> | null = null,
+  root: TreeNode<T> | null = null,
   index: number = 0
-): Tree<T> | null {
+): TreeNode<T> | null {
   if (index < values.length) {
     root = { val: values[index], left: null, right: null }
     root.left = createTree(values, root.left, 2 * index + 1)
@@ -19,7 +19,7 @@ export function createTree<T>(
 }
 
 export function toArray<T>(
-  tree: Tree<T> | null,
+  tree: TreeNode<T> | null,
   values: T[] = [],
   index: number = 0
 ): T[] {

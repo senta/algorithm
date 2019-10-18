@@ -122,13 +122,13 @@ def test_case1():
 def create_test_typescript(dir):
     with open(path.join(dir, "solutions.test.ts"), "w") as fp:
         fp.write(
-            """"import { functionname as solution01 } from "./solution01"
+            """import { functionname as solution01 } from "./solution01"
 
 type Input = [number]
 const solutions = [solution01]
 
 test("case 1", () => {
-  const args: ArgType = [123]
+  const args: Input = [123]
 
   for (let i = 0; i < solutions.length; i++) {
     expect(solutions[i].apply(null, args)).toEqual(321)

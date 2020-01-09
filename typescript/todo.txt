@@ -1,2 +1,3 @@
 [ ] setup jest https://basarat.gitbooks.io/typescript/docs/testing/jest.html
 [ ] tree structure builder; take an array as an input [1, 2, 3, 4]
+[ ] tslint

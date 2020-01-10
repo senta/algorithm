@@ -1,0 +1,2 @@
+pipenv install --dev
+pipenv run pytest leetcode/0007-reverse-integer

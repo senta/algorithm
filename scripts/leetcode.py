@@ -107,14 +107,20 @@ def create_test_python(dir):
     with open(path.join(dir, "test_solutions.py"), "w") as fp:
         fp.write(
             """import solution01
-
+from pprint import pprint
 modules = [solution01]
 
+testcases = (
+    (("",), 0),
+    (("   ",), 0)
+)
 
 def test_case1():
     for module in modules:
         solution = module.Solution()
-        assert solution.reverse(123) == 321
+
+        for args, expected in testcases:
+            assert solution.myAtoi(*args) == expected
 """
         )
 
@@ -122,18 +128,29 @@ def test_case1():
 def create_test_typescript(dir):
     with open(path.join(dir, "solutions.test.ts"), "w") as fp:
         fp.write(
-            """import { functionname as solution01 } from "./solution01"
+            """import { myAtoi as solution01 } from "./solution01"
 
-type Input = [number]
+type Input = Parameters<typeof solution01>
+type Output = ReturnType<typeof solution01>
+type TestCase = [Input, Output]
+
+const testcases: TestCase[] = [
+  [[""], 0],
+  [["   "],  0]
+]
+
 const solutions = [solution01]
 
-test("case 1", () => {
-  const args: Input = [123]
+for (let i = 0; i < solutions.length; i++) {
 
-  for (let i = 0; i < solutions.length; i++) {
-    expect(solutions[i].apply(null, args)).toEqual(321)
+  for (let j = 0; j < testcases.length; j++) {
+    const [args, expected] = testcases[j]
+
+    test(`solution: ${i}: case: ${j}`, () => {
+      expect(solutions[i].apply(null, args)).toEqual(expected)
+    })
   }
-})
+}
 """
         )
 
